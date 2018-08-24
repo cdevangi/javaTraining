@@ -1,0 +1,9 @@
+package com.interfaces;
+
+import com.pojos.Employee;
+
+public interface DataIO {
+	
+	public Employee getEmpDetails();
+
+}

@@ -1,0 +1,41 @@
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.connections.MyConnection;
+import com.pojos.Employee;
+
+public class EmployeeDAO {
+	
+	public int addEmployee(Employee emp) {
+		
+		String INSERT_EMPLOYEE = "INSERT INTO EMPLOYEE VALUES(?,?,?)";
+		
+		try {
+			
+			PreparedStatement ps = MyConnection.getMyConnection().prepareStatement(INSERT_EMPLOYEE);
+			
+			ps.setInt(1, emp.getEmpID());
+			ps.setString(2, emp.getName());
+			ps.setInt(3, emp.getSalary());
+			
+			return ps.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return 0;
+			
+	}
+	
+	public List<Employee> findAllEmployees() {
+		
+		List <Employee> emps = new ArrayList<>();
+		
+		return emp;
+		
+	}
+
+}

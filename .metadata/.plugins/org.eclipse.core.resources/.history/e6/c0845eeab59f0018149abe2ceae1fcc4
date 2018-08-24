@@ -1,0 +1,31 @@
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import com.connections.MyConnection;
+
+public class DemoFetch {
+
+	public static void main(String[] args) {
+		
+		Connection conn = MyConnection.getMyConnection();
+		try {
+			Statement st = conn.createStatement();
+			String FIND_ALL_EMPS = "select * from employee";
+			ResultSet rs = st.executeQuery(FIND_ALL_EMPS);
+			
+			while(rs.next()) {
+				System.out.println("id:"+rs.getInt(1)+", name: "+rs.getString(2)+", sal:"+rs.getInt(3) );
+				rs.updateInt(3, 15000);
+				rs.updateRow();
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+	}
+}

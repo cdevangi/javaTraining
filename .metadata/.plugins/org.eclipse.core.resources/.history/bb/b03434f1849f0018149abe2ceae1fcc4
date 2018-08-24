@@ -1,0 +1,17 @@
+import com.pojos.Employee;
+
+public class TestEmployeeDAO {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Employee myEmployee = new Employee(3, "eesha", 25000);
+		EmployeeDAO dao = new EmployeeDAO();
+		if(dao.addEmployee(myEmployee) > 0) {
+			System.out.println("Record added successfully");
+		}
+		else
+			System.out.println("Error adding entry!");
+	}
+
+}

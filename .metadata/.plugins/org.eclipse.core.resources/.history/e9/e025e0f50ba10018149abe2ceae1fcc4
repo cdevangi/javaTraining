@@ -1,0 +1,30 @@
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import com.connections.MyConnection;
+
+public class DemoTransaction {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Connection conn = MyConnection.getMyConnection();
+		
+		try {
+			Statement st = conn.createStatement();
+			
+			st.executeUpdate("INSERT INTO EMPLOYEE VALUES(92,'Meghna',20000)");
+			st.executeUpdate("INSERT INTO EMPLOYEE VALUES(93,'Meghna',20000)");
+			st.executeUpdate("INSERT INTO EMPLOYEE VALUES(1,'Meghna',20000)");
+			st.executeUpdate("INSERT INTO EMPLOYEE VALUES(95,'Meghna',20000)");
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block;
+			e.printStackTrace();
+		}
+
+	}
+
+}

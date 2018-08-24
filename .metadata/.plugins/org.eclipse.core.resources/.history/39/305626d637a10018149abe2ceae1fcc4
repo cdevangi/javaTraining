@@ -1,0 +1,25 @@
+package com.dao;
+
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import com.connections.MyConnection;
+
+public class LoginDAO {
+	
+	public boolean checkLogin(String username, String password) {
+		
+		String GET_PASS = "SELECT PASSWORD FROM LOGIN WHERE USERNAME = ?";
+		try {
+			PreparedStatement ps = MyConnection.getMyConnection().prepareStatement(GET_PASS);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		return false;
+		
+	}
+
+}

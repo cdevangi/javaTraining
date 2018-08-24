@@ -1,0 +1,43 @@
+import java.util.Scanner;
+
+import com.pojo.Logic;
+import com.pojo.Student;
+
+public class Test {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Logic l = new Logic();
+		
+		Student s[] = l.readFromUser();
+		l.writeStudents(s);
+		
+		int ch=0;
+		
+		System.out.println("**** MENU ****\n1.Display 2.Search");
+		Scanner in = new Scanner(System.in);
+		ch=in.nextInt();
+		
+		switch(ch) {
+		case 1: l.writeToUser(s);
+					break;
+					
+		case 2: int roll;
+				System.out.println("Enter roll no to search: ");
+				roll=in.nextInt();
+				
+				Student s1[]=l.readStudents();
+				for(Student x:s) {
+					if(roll==x.getRollNo())
+						System.out.println("Student is present");
+					else
+						System.out.println("Student not found");
+				}
+				
+			
+		}
+
+	}
+
+}

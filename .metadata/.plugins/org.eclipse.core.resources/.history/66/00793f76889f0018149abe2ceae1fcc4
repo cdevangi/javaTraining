@@ -1,0 +1,17 @@
+package com.pojos;
+
+import com.interfaces.DataIO;
+
+public class DataIOImpl implements DataIO {
+
+	
+	private Employee emp;
+	
+	
+	@Override
+	public Employee getEmpDetails() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

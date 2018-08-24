@@ -1,0 +1,40 @@
+import java.util.Iterator;
+import java.util.List;
+import java.util.Scanner;
+
+import com.pojos.Employee;
+
+public class TestEmployeeDAO {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Employee myEmployee = new Employee();
+		Scanner in = new Scanner(System.in);
+		System.out.println("Enter following employee details: ");
+		System.out.println("Emp ID: ");
+		myEmployee.setEmpID(in.nextInt());
+		in.nextLine();
+		System.out.println("Name: ");
+		myEmployee.setName(in.nextLine());
+		System.out.println("Salary: ");
+		myEmployee.setSalary(in.nextInt());
+		
+		
+		EmployeeDAO dao = new EmployeeDAO();
+		if(dao.addEmployee(myEmployee) > 0) {
+			System.out.println("Record added successfully");
+		}
+		else
+			System.out.println("Error adding entry!");
+		
+		List<Employee> rows = dao.findAllEmployees();
+		
+		Iterator<Employee> empr = rows.iterator();
+		
+		while(empr.hasNext()) {
+			System.out.println(empr.next());
+		}
+	}
+
+}
